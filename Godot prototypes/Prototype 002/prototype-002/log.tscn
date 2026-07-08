@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://csv4kcp27a0wy"]
+
+[ext_resource type="Texture2D" uid="uid://dimo11slpkld8" path="res://Assets/Log.png" id="1_5gxlv"]
+
+[sub_resource type="GDScript" id="GDScript_a0a2b"]
+script/source = "extends Area2D
+
+
+
+
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+	print(\"+1 Log\")
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i0ct0"]
+
+[node name="Area2D" type="Area2D" unique_id=1361175170]
+collision_mask = 2
+script = SubResource("GDScript_a0a2b")
+
+[node name="Log" type="Sprite2D" parent="." unique_id=712698934]
+texture = ExtResource("1_5gxlv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=659521710]
+shape = SubResource("CircleShape2D_i0ct0")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
