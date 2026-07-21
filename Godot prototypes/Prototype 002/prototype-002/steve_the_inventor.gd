@@ -1,31 +1,33 @@
 extends CharacterBody2D
 
+var speed = 100
 
-const SPEED = 140
-const JUMP_VELOCITY = -400.0
+var player_state 
 
-
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	# Updated initial movement for x axis only
-	var directionx := Input.get_axis("move_left", "move_right")
-	if directionx:
-		velocity.x = directionx * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+func _physics_process(delta):
 	
-	# Dupliaccted and changed to y axis
-
-	var directiony := Input.get_axis("move_up", "move_down")
-	if directiony:
-		velocity.y = directiony * SPEED
-	else:
-		velocity.y = move_toward(velocity.y
-		, 0, SPEED)
-
-	#NEEDED for movememt - last time deleted and game broke, had to relaunch project
+	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
+	
+	if direction.x == 0 and direction.y == 0:
+		player_state = "idle"
+	elif direction.x != 0 or direction.y != 0:
+		player_state = "walking"
+		
+	velocity = direction * speed
 	move_and_slide()
+
+	play_anim(direction)
+
+func play_anim(direction):
+	if player_state == "walking":
+		if direction.y == -1:
+			$AnimatedSprite2D.play("Upwards")
+		if direction.x == 1:
+			$AnimatedSprite2D.play("Right")
+		if direction.y == 1:
+			$AnimatedSprite2D.play("Idle")
+		if direction.x == -1:
+			$AnimatedSprite2D.play("Left")
+
+func player():
+	pass

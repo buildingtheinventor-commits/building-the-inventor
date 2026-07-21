@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://ddr3puge78pfj"]
 
-[ext_resource type="Texture2D" uid="uid://rdenetfbdl8d" path="res://Assets/Rock.png" id="1_6r1ml"]
+[ext_resource type="Texture2D" uid="uid://cx0r8eoclkyhp" path="res://Assets/Stone.png" id="1_o0qsl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8kjg"]
-size = Vector2(25, 11)
+[sub_resource type="CircleShape2D" id="CircleShape2D_7qi08"]
+radius = 21.540659
 
-[node name="StaticBody2D" type="StaticBody2D" unique_id=150592886]
+[node name="Stone" type="Node2D" unique_id=1665941252]
 
-[node name="Rock" type="Sprite2D" parent="." unique_id=93026954]
-texture = ExtResource("1_6r1ml")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1491601892]
+texture = ExtResource("1_o0qsl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=515211475]
-position = Vector2(0.5, 3)
-shape = SubResource("RectangleShape2D_t8kjg")
+[node name="pick-up area" type="Area2D" parent="." unique_id=248687125]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pick-up area" unique_id=369729745]
+shape = SubResource("CircleShape2D_7qi08")

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dj2q655ed3xdt"]
+
+[ext_resource type="Texture2D" uid="uid://y0neecu7xj53" path="res://Assets/PlayerVersion1.png" id="1_acol1"]
+[ext_resource type="Script" uid="uid://djj8ey10pnfdm" path="res://steve_the_inventor.gd" id="1_hbb67"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qi08"]
+radius = 7.0
+height = 32.0
+
+[node name="SteveTheInventor" type="CharacterBody2D" unique_id=1688945088]
+position = Vector2(0, -27)
+collision_layer = 2
+script = ExtResource("1_hbb67")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=989636370]
+texture = ExtResource("1_acol1")
+region_enabled = true
+region_rect = Rect2(34.481934, 0, 27.123108, 64.115875)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1997670412]
+position = Vector2(-1, 10)
+shape = SubResource("CapsuleShape2D_7qi08")
