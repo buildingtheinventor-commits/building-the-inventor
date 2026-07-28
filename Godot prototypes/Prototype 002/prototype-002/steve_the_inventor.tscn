@@ -69,4 +69,4 @@ shape = SubResource("CircleShape2D_hbb67")
 position = Vector2(-2, -7)
 sprite_frames = SubResource("SpriteFrames_7qi08")
 animation = &"Idle"
-frame_progress = 0.24023567
+frame_progress = 0.4680808

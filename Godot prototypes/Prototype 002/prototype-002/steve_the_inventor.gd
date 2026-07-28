@@ -4,6 +4,10 @@ var speed = 100
 
 var player_state 
 
+func ready():
+	#set this node as the player node
+	Global.set_player_reference(self)
+
 func _physics_process(delta):
 	
 	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
